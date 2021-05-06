@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useless Search</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <script>
+        // SOURCE: https://timesofindia.indiatimes.com/life-style/health-fitness/photo-stories/hate-double-chin-do-these-7-exercises-to-get-rid-of-it-in-30-days/photostory/63039519.cms?picid=63039521
+        fetch("data.json").then(data => data.json()).then(data => {
+            const combinedCorpus = Object.keys(data).map(key => key + " " + data[key])
+
+            const inputElem = document.querySelector('input')
+
+            inputElem.addEventListener('keyup', (ev) => {
+                console.log(search(inputElem.value, combinedCorpus, { useless: false }))
+            })
+
+        })</script>
+
+    <main>
+        <input type="text" placeholder="Try out useless search!" />
+    </main>
+</body>
+
+</html>
